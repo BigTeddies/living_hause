@@ -71,6 +71,7 @@ mysql_set_charset("utf8");
                         }
                         
                         include ("content.php");
+                        include ("living.php");
                         $_SESSION['zalogowany'] = 1;
                         $_SESSION['time'] = time();
                         $_SESSION['info_o_komp'] = $_SERVER['HTTP_USER_AGENT'];

@@ -11,10 +11,12 @@ mysql_set_charset("utf8");
         
     </head>
     <body>
+        <div>
         <?php
         require_once("DateBase.php");
         require_once("index.php");
         ?>
+        </div>
         
         <form action="EditData.php" method="post" >
             <div>
@@ -73,7 +75,7 @@ mysql_set_charset("utf8");
                     {
                         $email = filter_var($_POST['Email'], FILTER_SANITIZE_STRING);
                                                 
-                        $updateEmail = "Update user set name = '".$email."' where id = '".$_SESSION['idUser']."'";
+                        $updateEmail = "Update user set email = '".$email."' where id = '".$_SESSION['idUser']."'";
                         $add_to_database = new DateBase($updateEmail);  
                     }        
                 }

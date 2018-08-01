@@ -48,11 +48,9 @@
                     Powtórz hasło: <input type="password" name="Repeat_Password" maxlength="15" size="5" />
                 </div> 
                 <div>
-                   <a href='index.php'> <input type="submit" value="Sign In" /></a>
+                   <input type="submit" value="Sign In" />
                 </div>
-                <div>
-                    <a href='index.php'> <input type="button" value="Powrót do strony głównej" /></a>
-                </div>
+                
             </div>
         </form>    
         
