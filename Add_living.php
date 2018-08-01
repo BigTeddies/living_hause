@@ -17,7 +17,7 @@
                         $desc = filter_var($_POST['Description'], FILTER_SANITIZE_STRING);
                         $howOften = filter_var($_POST['How_often'], FILTER_SANITIZE_STRING);
                         $type = filter_var($_POST['Type'], FILTER_SANITIZE_STRING);
-                        if ($type = "Rośliny"){
+                        if ($type == "Rośliny"){
                             $typeDataBase = 0;
                         }
                         else {
@@ -53,6 +53,10 @@
                 </div>
                 <div>
                    <input type="submit" value="Zapisz akcję" />
+                </div>
+                </div>
+                <div>
+                    <a href='index.php'> <input type="button" value="Powrót do strony głównej" /></a>
                 </div>
             </div>
         </form>    

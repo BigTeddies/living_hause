@@ -29,7 +29,7 @@
                                     break;
                                 case "how_often" :
                                     $howOften = $value;
-                                   echo "<tr><td>Jak często: $value</td></tr>";
+                                   echo "<tr><td>Jak często: $value dni</td></tr>";
                                    break;
                                    case "start_date":
                                        echo "<tr><td>Ostatnia czynność: $value</td></tr>";
