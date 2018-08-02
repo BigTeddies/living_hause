@@ -29,6 +29,7 @@ mysql_set_charset("utf8");
     <body>
        
         <?php
+            require_once("DateBase.php");
             if (isset($_GET['akcja']) && $_GET['akcja'] == "wyloguj")
             {
                 $_SESSION['zalogowany'] = 0;
@@ -72,6 +73,31 @@ mysql_set_charset("utf8");
                         
                         include ("content.php");
                         include ("living.php");
+                        
+                        if (isset($_GET['akcja']) && substr($_GET['akcja'],0,-strlen($_GET['akcja'])+4) == "usun")
+                        {
+                            $idTask = substr($_GET['akcja'],5);
+                            
+                            $deleteTask = "DELETE FROM `plants_pets` WHERE id = ".$idTask;
+                            $add_to_database = new DateBase($deleteTask);
+                            
+                        }
+                        
+                        if (isset($_GET['akcja']) && substr($_GET['akcja'],0,-strlen($_GET['akcja'])+6) == "edytuj")
+                        {
+                        $_SESSION['idTask'] = substr($_GET['akcja'],7);
+                            
+                            
+                            require_once("EditLiving.php");
+                        }
+                        
+                        if (isset($_GET['akcja']) && substr($_GET['akcja'],0,-strlen($_GET['akcja'])+8) == "wykonano")
+                        {
+                            $_SESSION['idTask'] = substr($_GET['akcja'],9);
+                            require_once("UpdateStartDate.php");
+                            $n = new UpdateStartDate($_SESSION['idTask']);
+                        }
+                        
                         $_SESSION['zalogowany'] = 1;
                         $_SESSION['time'] = time();
                         $_SESSION['info_o_komp'] = $_SERVER['HTTP_USER_AGENT'];

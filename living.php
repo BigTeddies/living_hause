@@ -1,6 +1,6 @@
 <?php
     $query = "
-                SELECT name, description, how_often, start_date, type FROM plants_pets WHERE id_user = '".$_SESSION['idUser']."' ORDER BY name
+                SELECT id, name, description, how_often, start_date, type FROM plants_pets WHERE id_user = '".$_SESSION['idUser']."' ORDER BY name
             ";
     $result = mysql_query($query) or die(mysql_error());
     for ($i = 0; $i < mysql_num_rows($result); $i++)
@@ -11,16 +11,7 @@
                      {
                          switch ($key)
                          {
-                         case "type":
-                         {
-                             if ($value == 0){
-                                 echo "<tr><td>Typ: Rośliny</td></tr>";
-                             }
-                               else {
-                                echo "<tr><td>Typ: Zwierzęta</td></tr>";
-                               }
-                               break;
-                         }
+
                              case "name":
                                 echo "<tr><td>Nazwa: $value</td></tr>";
                                 break;
@@ -34,6 +25,23 @@
                                    case "start_date":
                                        echo "<tr><td>Ostatnia czynność: $value</td></tr>";
                                        break;
+                                       case "id":
+                                           $idAction = $value;
+                                           break;
+                         case "type":
+                         {
+                             if ($value == 0){
+                                 echo "<tr><td>Typ: Rośliny</td></tr>";
+                             }
+                               else {
+                                echo "<tr><td>Typ: Zwierzęta</td></tr>";
+                               }
+                               echo "<tr><td><a href='index.php?akcja=usun_".$idAction."'>Usuń</a><br /></td></tr>";
+                               echo "<tr><td><a href='index.php?akcja=edytuj_".$idAction."'>Edytuj</a><br /></td></tr>";
+                               echo "<tr><td><a href='index.php?akcja=wykonano_".$idAction."'>Wykonano</a><br /></td></tr>";
+                               break;
+                         }
+                                   
                                        
                          }
                          

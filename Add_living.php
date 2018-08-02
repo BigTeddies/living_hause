@@ -43,7 +43,7 @@
                     Opis: <input type="text" name="Description" maxlength="255" size="5" />
                 </div>
                 <div>
-                    Jak często: <input type="text" name="How_often" maxlength="15" size="5" />
+                    Co ile dni: <input type="text" name="How_often" maxlength="15" size="5" />
                 </div>
                 <div>
                     Typ: <select name="Type">
